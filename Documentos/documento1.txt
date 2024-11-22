@@ -18,3 +18,5 @@ rmdir /s: elimina una carpeta y su contenido
 ipconfig: muestra información de la red 
 tasklist: muestra todos los procesos en ejecución 
 touch <archivo>: crea un archivo vacio
+pwd: muestra el directorio actual
+rm -rf <carpeta>: elimina una carpeta y su contenido forzadamente
