@@ -3,3 +3,5 @@
 Comandos de Git 
 git clone <URL>: clona un repositorio existente en un nuevo directorio, en otra ubicación 
 git add. : añade todos los archivos al staging area 
+git log: muestra el historial de commits
+git branch: muestra la lista de las ramas locales
