@@ -9,3 +9,5 @@ git checkout: se usa para actualizar el estado del repositorio a un punto espéc
 git diff <rama1 rama2>: permite comparar ramas, commits o archivos, solo dos elementos a la vez 
 git merge <rama1 rama2>: unifica dos ramas, solo dos a la vez
 git reset <archivo>: quita un archivo del staging area
+git tag <nombre_del_tag commit>:asocia un commit a un tag
+git tag: muestra la lista de todos los tags
