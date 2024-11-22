@@ -5,5 +5,7 @@ git clone <URL>: clona un repositorio existente en un nuevo directorio, en otra 
 git add. : añade todos los archivos al staging area 
 git log: muestra el historial de commits
 git branch: muestra la lista de las ramas locales
-git checkout: se usa para actualizar el estado del repositorio a un punto espécifico del historial de proyectos.
+git checkout: se usa para actualizar el estado del repositorio a un punto espécifico del historial de proyectos
 git diff <rama1 rama2>: permite comparar ramas, commits o archivos, solo dos elementos a la vez 
+git merge <rama1 rama2>: unifica dos ramas, solo dos a la vez
+git reset <archivo>: quita un archivo del staging area
