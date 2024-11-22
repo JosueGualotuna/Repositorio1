@@ -15,3 +15,6 @@ git tag: muestra la lista de todos los tags
 Comandos de Windows
 del <archivo>: elimina un archivo
 rmdir /s: elimina una carpeta y su contenido
+ipconfig: muestra información de la red 
+tasklist: muestra todos los procesos en ejecución 
+touch <archivo>: crea un archivo vacio
