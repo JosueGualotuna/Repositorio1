@@ -1,1 +1,5 @@
 1 2 3
+
+Comandos de Git 
+git clone <URL>: clona un repositorio existente en un nuevo directorio, en otra ubicación 
+git add. : añade todos los archivos al staging area 
