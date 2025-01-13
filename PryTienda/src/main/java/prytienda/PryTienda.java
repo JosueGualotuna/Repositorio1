@@ -19,8 +19,20 @@ do{
                 System.out.println("5. Eliminar un producto");
     System.out.println("6. Terminar el programa");
     System.out.print("ENTRADA: ");
-    opcion= entrada.nextInt();
-    System.out.println();   
+ while(true){
+if(entrada.hasNextInt()){
+    opcion = entrada.nextInt();
+if(opcion>0&&opcion<7){
+    break;
+} else{
+    System.out.println("Ingrese un numero valido");    
+}
+}else{
+    System.out.println("Ingrese un valor numerico");
+    entrada.next();
+}     
+}
+ System.out.println();   
    entrada.nextLine(); 
    if(opcion==6){
        System.out.println("Programa finalizado");
@@ -30,10 +42,43 @@ switch(opcion){
     case 1:
         System.out.print("Ingrese el nombre del producto: ");
 String nombre = entrada.nextLine();
+
+
+
         System.out.print("Ingrese la cantidad del producto: ");
-int cantidad = entrada.nextInt();
+int cantidad;
+        while(true){
+if(entrada.hasNextInt()){
+    cantidad = entrada.nextInt();
+if(cantidad>0){
+    break;
+} else{
+    System.out.println("La cantidad no puede ser negativa");    
+}
+}else{
+    System.out.println("Ingrese un valor numerico");
+    entrada.next();
+}     
+}
+
+
         System.out.print("Ingrese el precio del producto: ");
-double precio = entrada.nextDouble();
+double precio;
+    while(true){
+if(entrada.hasNextInt()){
+    precio = entrada.nextInt();
+if(precio>0){
+    break;
+} else{
+    System.out.println("El precio no puede ser negativo");    
+}
+}else{
+    System.out.println("Ingrese un valor numerico");
+    entrada.next();
+}     
+}
+
+
 Producto mainProducto = new Producto(nombre,cantidad,precio);
 mainProducto.setNombre(nombre);
 mainProducto.setCantidad(cantidad);
@@ -80,4 +125,3 @@ while(opcion!=6);
         
     }
 }
-
