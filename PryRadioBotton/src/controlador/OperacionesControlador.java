@@ -16,6 +16,11 @@ public int restar(int a,int b){
 }    
  
  public int dividir(int a,int b){
-    return a/b;
+     if(b!=0){
+        return a/b;
+   }
+   else{
+       return 0;
+   }
 }  
 }
