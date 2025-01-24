@@ -41,22 +41,38 @@ if(opcion>0&&opcion<7){
 switch(opcion){   
     case 1:
         System.out.print("Ingrese el nombre del producto: ");
-String nombre = entrada.nextLine();
+String nombre;
 
+while(true){
+if(entrada.hasNext()){
+nombre = entrada.nextLine();
+break;
+
+}
+else{
+    nombre = entrada.nextLine();
+    char nombrechar = nombre.charAt(1);
+        if(Character.isDigit(nombrechar)){
+      System.out.println("Solo se pueden ingresar letras");
+    entrada.next();
+      
+    }
+}
+}
 
 
         System.out.print("Ingrese la cantidad del producto: ");
-int cantidad;
+double cantidad;
         while(true){
-if(entrada.hasNextInt()){
-    cantidad = entrada.nextInt();
+if(entrada.hasNextDouble()){
+    cantidad = entrada.nextDouble();
 if(cantidad>0){
     break;
 } else{
     System.out.println("La cantidad no puede ser negativa");    
 }
 }else{
-    System.out.println("Ingrese un valor numerico");
+    System.out.println("Ingrese un valor numerico entero");
     entrada.next();
 }     
 }
@@ -65,8 +81,8 @@ if(cantidad>0){
         System.out.print("Ingrese el precio del producto: ");
 double precio;
     while(true){
-if(entrada.hasNextInt()){
-    precio = entrada.nextInt();
+if(entrada.hasNextDouble()){
+    precio = entrada.nextDouble();
 if(precio>0){
     break;
 } else{
@@ -99,7 +115,7 @@ break;
         System.out.print("Ingrese el nombre del producto que busca: ");
         String nombreBuscar = entrada.nextLine();
         Producto productoBuscado = mainInventario.buscarProducto(nombreBuscar);
-        System.out.println("Producto encontrado: "+ productoBuscado);
+        System.out.println( productoBuscado);
                 System.out.println();
 
         break;

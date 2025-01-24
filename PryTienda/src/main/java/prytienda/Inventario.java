@@ -28,11 +28,15 @@ public void  mostrarProducto(){
     public Producto buscarProducto(String nombre) {
         for (Producto prod : listaProductos) {
             if (prod.getNombre().equalsIgnoreCase(nombre)) {
+                System.out.print("Producto encontrado: ");
+                
                 return prod;
-       
             }
             
         }
+        System.out.println("Producto no encontrado");
+                        System.out.print("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ");
+
         return null;
     }
 
@@ -40,6 +44,7 @@ public void  mostrarProducto(){
         double total = 0;
         for (Producto prod : listaProductos) {
             total += prod.getCantidad() * prod.getPrecio();
+        double totalredondeado = Math.floor(total);
         }
         return total;
     } 

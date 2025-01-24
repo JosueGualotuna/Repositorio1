@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Producto {
 Scanner entrada = new Scanner(System.in);  
 String nombre;    
-int cantidad;
+double cantidad;
 double precio;
 
 
-public Producto(String nombre, int cantidad, double precio) {
+public Producto(String nombre, double cantidad, double precio) {
 
     this.nombre = nombre;
         this.cantidad = cantidad;
@@ -21,7 +21,7 @@ public Producto(String nombre, int cantidad, double precio) {
         return nombre;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
@@ -33,10 +33,10 @@ public Producto(String nombre, int cantidad, double precio) {
         this.nombre = nombre;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
 while(cantidad<0){
     System.out.print("ERROR, la cantidad no puede ser negativa, ingrese un valor nuevamente: ");    
-int cantidadNueva= entrada.nextInt();
+double cantidadNueva= entrada.nextDouble();
 cantidad = cantidadNueva;
 }
    this.cantidad = cantidad;
