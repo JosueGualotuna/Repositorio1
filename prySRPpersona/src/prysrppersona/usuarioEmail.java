@@ -17,12 +17,12 @@ public class usuarioEmail extends Usuario{
 
 public void buscarPorEmail(){
 
-    System.out.println("Buscando el siguiente correo: "+this.email+" perteneciente a "+nombres+""+apellidos);    
+    System.out.println("Buscando el siguiente correo: "+"kenny123@gmail.com"+", perteneciente a "+nombres+""+apellidos);    
     
 if(!email.equals("kenny123@gmail.com")){
-    System.out.println("NO se encontro el correo: "+this.email);
+    System.out.println("NO se encontro el correo: "+"kenny123@gmail.com"+", perteneciente a "+nombres+""+apellidos);
 }else{
-    System.out.println("SI se encontro el correo: "+this.email);
+    System.out.println("SI se encontro el correo: "+this.email+" ,perteneciente a "+nombres+""+apellidos);
 }
     
 
