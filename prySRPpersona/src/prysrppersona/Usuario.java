@@ -2,7 +2,6 @@
 package prysrppersona;
 
 public class Usuario {
-//gestion de usuario CRUD 
 
 String nombres,apellidos,email ;
 

@@ -16,10 +16,10 @@ public class UsuarioGenero extends Usuario {
     System.out.println("El usuario "+nombres+""+apellidos+" es masculino"); 
     System.out.println("No existen usuarios femeninos");
      }else
-         if(sexo==false){
-          System.out.println("Se encontro usuario femenino");
+     if(sexo==false){
+    System.out.println("Se encontro usuario femenino");
     System.out.println("El usuario "+nombres+""+apellidos+" es femenino"); 
-        System.out.println("No existen usuarios masculinos");
+    System.out.println("No existen usuarios masculinos");
     
          }
     }

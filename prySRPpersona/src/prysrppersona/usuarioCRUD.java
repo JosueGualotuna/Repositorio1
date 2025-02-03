@@ -24,12 +24,4 @@ public void buscarBBDD(){
     System.out.println("se encontro "+this.nombres +""+this.apellidos +" exitosamente");    
 }  
 
-
-
-//buscar por email
-//buscar mayor a 20
-// buscar menor a 30
-// buscar usuario solo hombre
-//buscar ususario solo mujeres
-
 }
