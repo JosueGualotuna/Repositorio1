@@ -2,7 +2,6 @@
 package prygestionprioridad;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class GestorTareas {
@@ -10,45 +9,44 @@ public class GestorTareas {
     ArrayList<tareas> listaTareas = new ArrayList<>();
             
    public void agregarTarea(tareas tareaAgregada){
-       listaTareas.add(tareaAgregada);
-   }
+for (tareas tarea : listaTareas) {
+            if (tarea.getNombre().equalsIgnoreCase(tareaAgregada.getNombre())) {
+                System.out.println("La tarea '" + tareaAgregada.getNombre() + "' ya existe, ingrese otra tarea");
+                return; 
+            }
+        }
+
+        listaTareas.add(tareaAgregada);
+                System.out.println("*tarea agregada exitosamente*"); 
+
+    }   
     
    public void mostrarTarea(){
    
-  for (tareas tareaMostrada : listaTareas) {
-  if(tareaMostrada.getPrioriodad()<5){
-      System.out.println(tareaMostrada);
-  }else{
-   if(tareaMostrada.getPrioriodad()<4){
-      System.out.println(tareaMostrada);
-   }     
-   else{
-   if(tareaMostrada.getPrioriodad()<3){
-      System.out.println(tareaMostrada);
-  }  
-     else{
-   if(tareaMostrada.getPrioriodad()<2){
-      System.out.println(tareaMostrada);
-  } 
-     else{
-   if(tareaMostrada.getPrioriodad()<1){
-      System.out.println(tareaMostrada);
-  } 
-   }        
-   }        }      
-     }
-   }
+         int n = listaTareas.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (listaTareas.get(j).getPrioridad() > listaTareas.get(j + 1).getPrioridad()) {
+                    tareas temp = listaTareas.get(j);
+                    listaTareas.set(j, listaTareas.get(j + 1));
+                    listaTareas.set(j + 1, temp);
+                }
+            }
+        }
+
+        System.out.println("Lista de tareas ordenadas por prioridad:");
+        for (tareas tareaMostrada : listaTareas) {
+            System.out.println(tareaMostrada);
+        }
    }
        public tareas buscarTarea(String nombre) {
         for (tareas tareaBuscada : listaTareas) {
-            if (tareaBuscada.getNombre().equalsIgnoreCase(nombre)) {
-                System.out.print("Tarea encontrada ");
-                
+            if (tareaBuscada.getNombre().equalsIgnoreCase(nombre)) {                
                 return tareaBuscada;
             }
             
         }
-        System.out.println("Producto no encontrado");
+        System.out.println("tarea no encontrada");
                         System.out.print("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ");
 
         return null;
