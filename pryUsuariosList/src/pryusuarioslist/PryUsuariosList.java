@@ -1,85 +1,152 @@
-
 package pryusuarioslist;
 
 import java.util.Scanner;
 
-
 public class PryUsuariosList {
 
-
     public static void main(String[] args) {
-/*
-  ingrese la cantidad de estudiantes que quiere ingresar: 3;
-        ingresar nombre del estudiante 1: kenny;
-        ingresar nota del estudiante 1: 5;
-        se repite 3 veces
-      consultar notas del sexo M
-        consultar notas del seno F       
-        */
-usuarioReportes reportes = new usuarioReportes();
+
+        usuarioReportes reportes = new usuarioReportes();
         Scanner entrada = new Scanner(System.in);
-int opcion =0; 
-int tamano=0;
-do{
-System.out.println("====GESTION DE ESTUDIANTES===");
+        int opcion = 0;
 
-    System.out.println(") ngrese la cantidad de estudiantes que desea agregar ");
-    System.out.println(") Para finalizar el programa presione 0");
-    System.out.print("Entrada: ");
-    tamano=entrada.nextInt();
-    System.out.println("");
-    do{
-    System.out.println("====GESTION DE ESTUDIANTES===");
-    System.out.println("1) Agregar estudiantes");
-        System.out.println("2) Mostrar estudiantes");
-    System.out.println("3) Mostrar promedio de los estudiantes masculinos");
-    System.out.println("4) mostrar promeido de los estudiantes femeninos ");
-    System.out.println("5) salir");
-    System.out.println("ENTRADA: ");
-opcion = entrada.nextInt();
-    System.out.println("");
-entrada.nextLine();
-switch(opcion){
-    case 1:
-        System.out.println("Ingrese el nombre del estudiante");
-    String nombre= entrada.nextLine();
-        System.out.println("Ingrese el sexo del estudiante");
-String sexoString = entrada.nextLine();
-boolean sexoBoolean=false;
-if(sexoString.equalsIgnoreCase("masculino")){
- sexoBoolean = true;
-}else{
-if(sexoString.equalsIgnoreCase("femenino")){
- sexoBoolean = false;
-}
-}
-        System.out.println("Ingrese la nota del estudiante");
-        double nota= entrada.nextDouble();
-    modeloEstudiante modelo = new modeloEstudiante(nombre, sexoBoolean, nota);
-reportes.agregar(modelo);
-        System.out.println("*estudiante agregado exitosamente*");
-System.out.println("");
-
-        break;
-    case 2: 
-        System.out.println("===LISTA DE ESTUDIANTES===");
-        reportes.mostrar();
+        do {
+            System.out.println("====GESTION DE ESTUDIANTES===");
+            System.out.println("1) Agregar estudiante");
+            System.out.println("2) Mostrar todos los estudiantes");
+            System.out.println("3) Mostrar estudiantes masculinos");
+            System.out.println("4) Mostrar estudiantes femeninos ");
+            System.out.println("5) Eliminar estudiante");
+            System.out.println("6) salir");
+            System.out.print("ENTRADA: ");
+            while (true) {
+                if (entrada.hasNextInt()) {
+                    opcion = entrada.nextInt();
+                    break;
+                } else {
+                    System.out.println("");
+                    System.out.println("Ingrese una opcion valida");
+                    entrada.nextLine();
+                }
+            }
             System.out.println("");
-break;
 
-    case 3:
-        System.out.print("el promedio de notas masculinas es: ");
-reportes.mostrarHombres();
-System.out.println("");
-   break;
-}
+            entrada.nextLine();
+            switch (opcion) {
+                case 1:
 
-}
-while(opcion!=5);
-}
-while(tamano!=0);
+                    System.out.print("cuantos estudiantes desea ingresar? ");
+                    int cantidad = 0;
+                    while (true) {
+                        if (entrada.hasNextInt()) {
+                            cantidad = entrada.nextInt();
+                            break;
+                        } else {
+                            System.out.print("Ingrese un numero entero: ");
+                            entrada.nextLine();
+                        }
 
+                    }
+                    System.out.println("");
+                    entrada.nextLine();
+                    for (int i = 0; i < cantidad; i++) {
+                        System.out.print("Ingrese el nombre del estudiante " + (i + 1) + ": ");
+
+                        String nombre = "";
+                        while (true) {
+                            if (entrada.hasNextDouble() || entrada.hasNextInt()) {
+                                System.out.println("Ingrese unicamente letras");
+                                System.out.print("Ingrese el nombre nuevamente: ");
+                                entrada.nextLine();
+                            } else {
+                                if (entrada.hasNextLine()) {
+                                    nombre = entrada.nextLine();
+                                    break;
+                                }
+                            }
+                        }
+
+                        System.out.println("");
+                        System.out.print("Ingrese el sexo del estudiante " + (i + 1) + " (masculino/femenino): ");
+                        String sexoString = "";
+                        boolean sexoBoolean = false;
+
+                        while (true) {
+                            if (entrada.hasNextDouble() || entrada.hasNextInt()) {
+                                System.out.println("No puede ingresar numeros");
+                                System.out.print("Ingrese el sexo nuevamente: ");
+                                entrada.nextLine();
+                            } else {
+                                if (entrada.hasNextLine()) {
+                                    sexoString = entrada.nextLine();
+                                    if (sexoString.equalsIgnoreCase("masculino")) {
+                                        sexoBoolean = true;
+                                        break;
+                                    } else {
+                                        if (sexoString.equalsIgnoreCase("femenino")) {
+                                            sexoBoolean = false;
+                                            break;
+                                        }
+                                    }
+                                    if (!sexoString.equalsIgnoreCase("masculino") || !sexoString.equalsIgnoreCase("femenino")) {
+                                        System.out.println("Ingrese uno de los dos sexos");
+                                        System.out.print("Ingrese el sexo nuevamente: ");
+
+                                    }
+                                }
+                            }
+                        }
+                        System.out.println("");
+                        System.out.print("Ingrese la nota del estudiante " + (i + 1) + ": ");
+                        double nota = 0;
+                        while (true) {
+                            if (entrada.hasNextDouble()) {
+                                nota = entrada.nextDouble();
+                                break;
+                            } else {
+                                System.out.print("Ingrese unicamente numeros");
+                                System.out.println("Ingrese la nota nuevamente: ");
+                                entrada.nextLine();
+                            }
+                        }
+
+                        modeloEstudiante modelo = new modeloEstudiante(nombre, sexoBoolean, nota);
+                        reportes.agregar(modelo);
+                        System.out.println("*estudiante agregado exitosamente*");
+                        System.out.println("");
+                        entrada.nextLine();
+                    }
+                    break;
+                case 2:
+                    System.out.println("===LISTA DE ESTUDIANTES===");
+                    reportes.mostrar();
+                    System.out.println("");
+                    break;
+
+                case 3:
+                    reportes.mostrarMasculino();
+                    System.out.println("");
+                    break;
+                case 4:
+                    reportes.mostrarFemenino();
+                    System.out.println("");
+                    break;
+                case 5:
+                    String nombre = "";
+                    System.out.print("Ingrese el nombre del estudiante a eliminar: ");
+                    nombre = entrada.nextLine();
+                    reportes.eliminar(nombre);
+                    break;
+                case 6:
+                    System.out.println("programa finalizado");
+                    break;
+                default:
+                    System.out.println("Opcion no existente");
+                    System.out.println("");
+            }
+
+        } while (opcion != 6);
 
     }
-    
+
 }
