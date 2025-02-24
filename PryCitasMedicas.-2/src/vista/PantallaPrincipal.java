@@ -5,6 +5,7 @@
  */
 package vista;
 
+import vista.Especialidades.ingresar2;
 import vista.pacientes.Ingresar;
 import vista.pacientes.Listado;
 
@@ -37,11 +38,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         menu_IngresarPaciente = new javax.swing.JMenuItem();
         menu_ListadoPaciente = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        menuIngresarEspecialidad = new javax.swing.JMenuItem();
+        menuListadoEspecialidad = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        MenuIngresarMedico = new javax.swing.JMenuItem();
+        MenuListarMedico = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -87,21 +88,41 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("ESPECIALIDAD");
 
-        jMenuItem3.setText("INGRESAR");
-        jMenu5.add(jMenuItem3);
+        menuIngresarEspecialidad.setText("INGRESAR");
+        menuIngresarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuIngresarEspecialidadActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuIngresarEspecialidad);
 
-        jMenuItem8.setText("LISTADO");
-        jMenu5.add(jMenuItem8);
+        menuListadoEspecialidad.setText("LISTADO");
+        menuListadoEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuListadoEspecialidadActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuListadoEspecialidad);
 
         jMenuBar1.add(jMenu5);
 
         jMenu3.setText("MEDICOS");
 
-        jMenuItem5.setText("INGRESAR");
-        jMenu3.add(jMenuItem5);
+        MenuIngresarMedico.setText("INGRESAR");
+        MenuIngresarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuIngresarMedicoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MenuIngresarMedico);
 
-        jMenuItem9.setText("LISTADO");
-        jMenu3.add(jMenuItem9);
+        MenuListarMedico.setText("LISTADO");
+        MenuListarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuListarMedicoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MenuListarMedico);
 
         jMenuBar1.add(jMenu3);
 
@@ -146,6 +167,33 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         contenedor_Principal.add(new Listado()).setVisible(true);
     }//GEN-LAST:event_menu_ListadoPacienteActionPerformed
 
+    private void menuIngresarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarEspecialidadActionPerformed
+
+        
+        contenedor_Principal.removeAll();
+contenedor_Principal.add(new ingresar2()).setVisible(true);
+
+    }//GEN-LAST:event_menuIngresarEspecialidadActionPerformed
+
+    private void menuListadoEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListadoEspecialidadActionPerformed
+contenedor_Principal.removeAll();
+contenedor_Principal.add(new vista.Especialidades.Listado()).setVisible(true);
+
+
+    }//GEN-LAST:event_menuListadoEspecialidadActionPerformed
+
+    private void MenuIngresarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuIngresarMedicoActionPerformed
+contenedor_Principal.removeAll();
+contenedor_Principal.add(new vista.Medico.Ingresar()).setVisible(true);
+
+    }//GEN-LAST:event_MenuIngresarMedicoActionPerformed
+
+    private void MenuListarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListarMedicoActionPerformed
+contenedor_Principal.removeAll();
+
+contenedor_Principal.add(new vista.Medico.Listado()).setVisible(true);
+    }//GEN-LAST:event_MenuListarMedicoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -182,6 +230,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuIngresarMedico;
+    private javax.swing.JMenuItem MenuListarMedico;
     private javax.swing.JDesktopPane contenedor_Principal;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -189,12 +239,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem menuIngresarEspecialidad;
+    private javax.swing.JMenuItem menuListadoEspecialidad;
     private javax.swing.JMenuItem menu_IngresarPaciente;
     private javax.swing.JMenuItem menu_ListadoPaciente;
     // End of variables declaration//GEN-END:variables

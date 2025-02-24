@@ -1,17 +1,31 @@
 
-package vista.pacientes;
+package vista.Medico;
 
+import controlador.EspecialidadControlador;
+import controlador.MedicoControlador;
+import vista.pacientes.*;
 import controlador.PacienteControlador;
 import javax.swing.JOptionPane;
+import modelo.EspecialidadModelo;
+import modelo.MedicoModelo;
 import modelo.PacienteModelo;
 
 
 public class Ingresar extends javax.swing.JInternalFrame {
 
-    PacienteControlador paciente = PacienteControlador.getInstancia();
+    
+    
+    MedicoControlador medico = MedicoControlador.getInstancia();
+    EspecialidadControlador especialidad = EspecialidadControlador.getInstancia();
     public Ingresar() {
         initComponents();
+        especialidad.RetornarListarEspecialidad();
         
+        
+        for(EspecialidadModelo espec : especialidad.RetornarListarEspecialidad()){
+            boxEspecialidad.addItem(espec.getNombre());
+            
+        }
     }
 
    
@@ -29,6 +43,8 @@ public class Ingresar extends javax.swing.JInternalFrame {
         cbx_sexo = new javax.swing.JComboBox<>();
         btn_guardardatos = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        boxEspecialidad = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel1.setText("CEDULA");
@@ -54,38 +70,47 @@ public class Ingresar extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel5.setText("DATOS PERSONALES");
 
+        jLabel6.setText("ESPECIALIDAD");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_guardardatos, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 130, Short.MAX_VALUE))
-                    .addComponent(txt_cedula)
-                    .addComponent(txt_nombres)
-                    .addComponent(txt_edad)
-                    .addComponent(cbx_sexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_guardardatos, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 130, Short.MAX_VALUE))
+                            .addComponent(txt_cedula)
+                            .addComponent(txt_nombres)
+                            .addComponent(txt_edad)
+                            .addComponent(cbx_sexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(boxEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(222, 222, 222))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,9 +126,13 @@ public class Ingresar extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cbx_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(boxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btn_guardardatos)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -113,18 +142,26 @@ public class Ingresar extends javax.swing.JInternalFrame {
         String cedula = txt_cedula.getText();
         String nombres = txt_nombres.getText();
         int edad = Integer.parseInt(txt_edad.getText());
-        
         boolean sexo= cbx_sexo.getSelectedItem().toString().equals("HOMBRE");
-        PacienteModelo pacienteModelo = paciente.AgregarPaciente(cedula, nombres, edad, sexo);
-        JOptionPane.showMessageDialog(this, "PACIENTE AGREGADO CORRECTAMENTE: "+pacienteModelo.getNombres());
+
+        String nombre=boxEspecialidad.getSelectedItem().toString();
+EspecialidadControlador especontrolador = EspecialidadControlador.getInstancia();        
+        EspecialidadModelo espemodelo = especontrolador.obtenerPorNombre(nombre);
+        
+        MedicoControlador medicontrol = MedicoControlador.getInstancia();
+        MedicoModelo medic = medicontrol.agregarMedico(espemodelo, cedula, nombres, edad, sexo);
+        
+        
+        
+        
+        JOptionPane.showMessageDialog(this, "PACIENTE AGREGADO CORRECTAMENTE: "+medic.getNombres());
 txt_cedula.setText("");
-txt_edad.setText("");
 txt_edad.setText("");
 txt_nombres.setText("");
     }//GEN-LAST:event_btn_guardardatosActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxEspecialidad;
     private javax.swing.JButton btn_guardardatos;
     private javax.swing.JComboBox<String> cbx_sexo;
     private javax.swing.JLabel jLabel1;
@@ -132,6 +169,7 @@ txt_nombres.setText("");
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_edad;
     private javax.swing.JTextField txt_nombres;
