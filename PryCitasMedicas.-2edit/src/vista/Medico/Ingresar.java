@@ -154,7 +154,7 @@ EspecialidadControlador especontrolador = EspecialidadControlador.getInstancia()
         
         
         
-        JOptionPane.showMessageDialog(this, "PACIENTE AGREGADO CORRECTAMENTE: "+medic.getNombres());
+        JOptionPane.showMessageDialog(this, "MEDICO AGREGADO CORRECTAMENTE: "+medic.getNombres());
 txt_cedula.setText("");
 txt_edad.setText("");
 txt_nombres.setText("");

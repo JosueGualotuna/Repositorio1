@@ -45,5 +45,18 @@ public  ArrayList<MedicoModelo> RetornarListaMedico(){
     }
 
 
+  public ArrayList<MedicoModelo> ListadoPorEspecialidad(String nombreEspecialidad){
+        ArrayList<MedicoModelo> nuevaListaMedico = new ArrayList<>();
+        for (MedicoModelo medicom : MedicoLista) {
+            if(medicom.getEspecialidad().getNombre().contains(nombreEspecialidad)){
+                nuevaListaMedico.add(medicom);
+            }
+        }
+        return nuevaListaMedico;
+    }
+      
+  }
+  
+  
 
-}
+

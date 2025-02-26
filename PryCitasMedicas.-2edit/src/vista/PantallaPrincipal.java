@@ -44,7 +44,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         MenuIngresarMedico = new javax.swing.JMenuItem();
         MenuListarMedico = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuIngresarCita = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,8 +128,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("CITAS");
 
-        jMenuItem4.setText("INGRESAR");
-        jMenu6.add(jMenuItem4);
+        menuIngresarCita.setText("INGRESAR");
+        menuIngresarCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuIngresarCitaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuIngresarCita);
 
         jMenuItem6.setText("LISTADO");
         jMenu6.add(jMenuItem6);
@@ -151,20 +156,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void DespejarPantalla(){
+        contenedor_Principal.revalidate();
+contenedor_Principal.repaint();
 
+}
     private void menu_IngresarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_IngresarPacienteActionPerformed
-        contenedor_Principal.add(new Listado()).setVisible(false);
-        Ingresar ingresar = new Ingresar();
-        contenedor_Principal.removeAll();
-        contenedor_Principal.add(ingresar);
-        ingresar.setVisible(true);
-        
+         contenedor_Principal.removeAll();
+        contenedor_Principal.add(new Ingresar()).setVisible(true);
+        DespejarPantalla();
+    
     }//GEN-LAST:event_menu_IngresarPacienteActionPerformed
 
     private void menu_ListadoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ListadoPacienteActionPerformed
-        contenedor_Principal.add(new Ingresar()).setVisible(false);
         contenedor_Principal.removeAll();
         contenedor_Principal.add(new Listado()).setVisible(true);
+        DespejarPantalla();
+
     }//GEN-LAST:event_menu_ListadoPacienteActionPerformed
 
     private void menuIngresarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarEspecialidadActionPerformed
@@ -172,12 +180,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         contenedor_Principal.removeAll();
 contenedor_Principal.add(new ingresar2()).setVisible(true);
+        DespejarPantalla();
 
     }//GEN-LAST:event_menuIngresarEspecialidadActionPerformed
 
     private void menuListadoEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListadoEspecialidadActionPerformed
 contenedor_Principal.removeAll();
 contenedor_Principal.add(new vista.Especialidades.Listado()).setVisible(true);
+        DespejarPantalla();
 
 
     }//GEN-LAST:event_menuListadoEspecialidadActionPerformed
@@ -185,6 +195,7 @@ contenedor_Principal.add(new vista.Especialidades.Listado()).setVisible(true);
     private void MenuIngresarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuIngresarMedicoActionPerformed
 contenedor_Principal.removeAll();
 contenedor_Principal.add(new vista.Medico.Ingresar()).setVisible(true);
+        DespejarPantalla();
 
     }//GEN-LAST:event_MenuIngresarMedicoActionPerformed
 
@@ -192,7 +203,17 @@ contenedor_Principal.add(new vista.Medico.Ingresar()).setVisible(true);
 contenedor_Principal.removeAll();
 
 contenedor_Principal.add(new vista.Medico.Listado()).setVisible(true);
+        DespejarPantalla();
+
     }//GEN-LAST:event_MenuListarMedicoActionPerformed
+
+    private void menuIngresarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarCitaActionPerformed
+
+contenedor_Principal.removeAll();
+contenedor_Principal.add(new vista.Citas.Ingresar()).setVisible(true);
+        DespejarPantalla();
+
+    }//GEN-LAST:event_menuIngresarCitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,8 +260,8 @@ contenedor_Principal.add(new vista.Medico.Listado()).setVisible(true);
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem menuIngresarCita;
     private javax.swing.JMenuItem menuIngresarEspecialidad;
     private javax.swing.JMenuItem menuListadoEspecialidad;
     private javax.swing.JMenuItem menu_IngresarPaciente;
